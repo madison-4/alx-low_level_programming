@@ -11,7 +11,10 @@ int main(void)
 	while (character <= 122)
 	{
 		if (character == 113 || character == 101)
+		{
+			character++;
 			continue;
+		}
 		putchar(character);
 		character++;
 	}
