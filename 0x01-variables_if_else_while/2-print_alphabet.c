@@ -8,7 +8,10 @@ int main(void)
 	int character = 97;
 
 	while (character <= 122)
+	{
 		putchar(character);
+		character++;
+	}
 	putchar(10);
 	return (0);
 }
