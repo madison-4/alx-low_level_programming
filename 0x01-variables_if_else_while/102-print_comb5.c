@@ -18,9 +18,11 @@ int main(void)
 			putchar(32);
 			putchar((secondnumber / 10) + 48);
 			putchar((secondnumber % 10) + 48);
-			if ((firstnumber != 98) && (secondnumber != 99)
-			    putchar(44);
-			    putchar(32);
+			if ((firstnumber == 98) && (secondnumber == 99))
+				break;
+			putchar(44);
+			putchar(32);
+			secondnumber++;
 		}
 		firstnumber++;
 	}
