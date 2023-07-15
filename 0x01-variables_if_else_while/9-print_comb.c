@@ -8,7 +8,7 @@ int main(void)
 {
 	int digit = 48;
 
-	while(digit <= 57)
+	while (digit <= 57)
 	{
 		putchar(digit);
 		if (digit != 57)
@@ -18,7 +18,7 @@ int main(void)
 		}
 		else
 		{
-			putchar(36);
+			putchar(10);
 		}
 		digit++;
 	}
