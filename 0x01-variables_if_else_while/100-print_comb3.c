@@ -15,12 +15,16 @@ int main(void)
 		{
 			putchar(firstdigit);
 			putchar(seconddigit);
-			putchar(44);
-			putchar(32);
+			if (firstdigit != 56 && seconddigit != 57)
+			{
+				putchar(44);
+				putchar(32);
+			}
+			else
+				putchar(10);
 			seconddigit++;
 		}
 		firstdigit++;
 	}
-	putchar(10);
 	return (0);
 }
