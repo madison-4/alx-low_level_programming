@@ -23,9 +23,11 @@ int main(void)
 					break;
 				putchar(44);
 				putchar(32);
-				seconddigit++;
+				third++;
+			}
+			second++;
 		}
-		firstdigit++;
+		first++;
 	}
 	putchar(10);
 	return (0);
