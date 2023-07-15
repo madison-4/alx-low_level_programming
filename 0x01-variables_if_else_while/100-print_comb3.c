@@ -20,13 +20,10 @@ int main(void)
 				putchar(44);
 				putchar(32);
 			}
-			else if (firstdigit == 56 && seconddigit == 57)
-			{
-				putchar(10);
-			}
 			seconddigit++;
 		}
 		firstdigit++;
 	}
+	putchar(10);
 	return (0);
 }
