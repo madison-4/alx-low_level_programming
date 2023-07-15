@@ -5,12 +5,12 @@
  */
 int main(void)
 {
-	int character = 97;
+	int character = 122;
 
-	while (character <= 122)
+	while (character >= 97)
 	{
 		putchar(character);
-		character++;
+		character--;
 	}
 	putchar(10);
 	return (0);
