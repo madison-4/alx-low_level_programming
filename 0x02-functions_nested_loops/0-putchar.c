@@ -2,7 +2,7 @@
 /**
  * main - prints _putchar to stdou
  * no arguments
- * Return: 0 on success
+ * Return: 0 on success; non-zero otherwise
  */
 int main(void)
 {
