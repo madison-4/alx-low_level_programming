@@ -16,6 +16,7 @@ void print_alphabet_x10(void)
 			_putchar(alphcount);
 			alphcount++;
 		}
+		_putchar('\n');
 		count++;
 	}
 }
