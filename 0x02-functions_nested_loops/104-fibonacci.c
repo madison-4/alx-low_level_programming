@@ -9,7 +9,7 @@ int main(void)
 	unsigned long int first = 1, second = 2, next, count;
 
 	printf("%ld, %ld, ", first, second);
-	for (count = 2; count < 98; count++)
+	for (count = 1; count < 98; count++)
 	{
 		next = first + second;
 		first = second;
