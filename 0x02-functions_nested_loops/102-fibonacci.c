@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	unsigned long long int first = 0, second = 1, temp;
+	unsigned long int first = 0, second = 1, temp;
 	int counter;
 
 	for (counter = 0; counter < 50; counter++)
