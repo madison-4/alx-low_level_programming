@@ -20,6 +20,6 @@ int main(void)
 		if ((temp % 2) == 0)
 			sum += temp;
 	}
-	printf("%d\n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
