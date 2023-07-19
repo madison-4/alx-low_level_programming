@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int multiple, sum = 0, iterator;
+	int sum = 0, iterator;
 
 	for (iterator = 3; iterator < 1024; iterator++)
 	{
