@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * time_table - print the 9 times tale
+ * times_table - print the 9 times tale
  * no arguments
  * no return
  */
@@ -22,5 +22,6 @@ void times_table(void)
 				_putchar((prod / 10) + 48);
 			_putchar((prod % 10) + 48);
 		}
+		_putchar('\n');
 	}
 }
