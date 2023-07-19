@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * times_table - print the 9 times tale
+ * print_times_table - print the 9 times tale
  * @n: number of tables to print
  * no return
  */
-void times_table(int n)
+void print_times_table(int n)
 {
 	int row, column, prod;
 
