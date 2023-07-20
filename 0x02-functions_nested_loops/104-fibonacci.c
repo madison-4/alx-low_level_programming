@@ -17,6 +17,7 @@ int main(void)
 		if (count == 97)
 		{
 			printf("%ld\n", next);
+			break;
 		}
 		else
 			printf("%ld, ", next);
