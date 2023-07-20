@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 /**
  * main - print first 98 fibbonacci numbers
  * no arguments
@@ -14,7 +13,7 @@ int main(void)
 	{
 		next = first + second;
 		first = second;
-		second = labs(next);
+		second = next;
 		if (count == 97)
 		{
 			printf("%ld\n", next);
