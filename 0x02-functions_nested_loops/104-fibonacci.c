@@ -6,21 +6,18 @@
  */
 int main(void)
 {
-	unsigned long int first = 1, second = 2, next, count;
+	long double first = 1, second = 2, next, count = 0;
 
-	printf("%ld, %ld, ", first, second);
-	for (count = 1; count < 98; count++)
+	while (count < 98)
 	{
+		if (count < 97)
+			printf("%.0Lf, ", first);
+		else
+			printf("%.0Lf, ", first);
 		next = first + second;
 		first = second;
 		second = next;
-		if (count == 97)
-		{
-			printf("%ld\n", next);
-			break;
-		}
-		else
-			printf("%ld, ", next);
+		count++;
 	}
 	return (0);
 }
