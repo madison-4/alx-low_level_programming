@@ -13,7 +13,7 @@ int main(void)
 		if (count < 97)
 			printf("%.0Lf, ", first);
 		else
-			printf("%.0Lf, ", first);
+			printf("%.0Lf", first);
 		next = first + second;
 		first = second;
 		second = next;
