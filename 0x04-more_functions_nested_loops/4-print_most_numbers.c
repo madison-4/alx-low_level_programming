@@ -1,0 +1,19 @@
+#include "main.h"
+/**
+ * print_most_numbers - prints 0 to 9 followed  y newline
+ * except 2 and 4
+ * no arguments
+ * Return: void
+ */
+void print_numbers(void)
+{
+	int i;
+
+	for (i = 48; i <= 57; i++)
+	{
+		if ((i == 50) || (i == 52))
+			continue;
+		_putchar(i);
+	}
+	_putchar(10);
+}
