@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * main - print first 98 fibbonacci numbers
  * no arguments
@@ -9,12 +10,17 @@ int main(void)
 	unsigned long int first = 1, second = 2, next, count;
 
 	printf("%ld, %ld, ", first, second);
-	for (count = 1; count <= 98; count++)
+	for (count = 1; count < 98; count++)
 	{
 		next = first + second;
 		first = second;
-		second = next;
-		printf("%ld, ", next);
+		second = labs(next);
+		if (count == 97)
+		{
+			printf("%ld\n", next);
+		}
+		else
+			printf("%ld, ", next);
 	}
 	return (0);
 }
