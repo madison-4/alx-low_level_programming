@@ -23,9 +23,20 @@ void puts_half(char *str)
 	int length, i;
 
 	length = _strlen(str);
-	for (i = 1 + (length / 2); str[i] != '\0'; i++)
+	if ((length % 2) == 0)
 	{
-		_putchar(str[i]);
+		for (i = (length / 2); str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
+	else if ((length % 2) != 0)
+	{
+		for (i = 1 + (length / 2); str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+		}
+		_putcar('\n');
+	}
 }
