@@ -1,0 +1,15 @@
+#include<stdio.h>
+/**
+ * main- test juliens examples
+ * no arguments
+ * Return: 0 on success
+ */
+int main(void)
+{
+	char c;
+	int n;
+
+	printf("address of variale c: %p \n", &c);
+	printf("address of varibale n : %n \n", &n);
+	return (0);
+}
