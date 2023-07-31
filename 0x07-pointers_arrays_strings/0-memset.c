@@ -8,7 +8,7 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	int iter = 0;
+	unsigned int iter = 0;
 
 	for (iter = 0; iter < n; iter++)
 	{
