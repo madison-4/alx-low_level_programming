@@ -6,12 +6,12 @@
  */
 int factorial(int n)
 {
-	int factorial;
+	int fact;
 
 	if (n < 0)
 		return (-1);
 	if (n <= 1)
 		return (1);
-	factorial = n * factorial(n - 1);
+	fact = n * factorial(n - 1);
 	return (factorial);
 }
