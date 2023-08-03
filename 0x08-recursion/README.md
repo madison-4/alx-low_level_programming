@@ -9,5 +9,10 @@ print a string followed by a new line
 print a string in reverse
 ## 2-strlen_recursion.c
 Get the length of a string
+## 3-factorial.c
+get the factorial of a number
+## 4-pow_recursion.c
+Raise a number to a particular power
+
 # Author
 nox/madison-4
