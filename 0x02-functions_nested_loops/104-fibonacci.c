@@ -6,17 +6,26 @@
  */
 int main(void)
 {
-	long double first = 1, second = 2, next, count = 0;
+	unsigned long first = 1, second = 2, next, count = 0, remainder, quot;
+	unsigned long int largest = 1000000000000000;
 
 	while (count < 98)
 	{
-		if (count < 97)
-			printf("%.0Lf, ", first);
+		if (next > largest)
+		{
+			quot = next / largest;
+			remainder = next % largest;
+			printf("%lu%lu", quot, remainder);
+		}
 		else
-			printf("%.0Lf\n", first);
+		{
+			printf("%lu", next);
+		}
 		next = first + second;
 		first = second;
 		second = next;
+		if (count < 97)
+			printf(", ");
 		count++;
 	}
 	return (0);
