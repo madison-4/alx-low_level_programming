@@ -10,7 +10,7 @@ int main(void)
 	unsigned long int largest = 10000000000;
 
 	printf("%lu, %lu, ", first, second);
-	while (count <= 98)
+	while (count < 98)
 	{
 		next = first + second;
 		first = second;
