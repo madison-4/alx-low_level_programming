@@ -29,5 +29,6 @@ int main(void)
 			printf(", ");
 		count++;
 	}
+	putchar(10)
 	return (0);
 }
