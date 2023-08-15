@@ -6,11 +6,15 @@
  */
 int main(void)
 {
-	unsigned long first = 1, second = 2, next, count = 0, remainder, quot;
+	unsigned long first = 1, second = 2, next, count = 3, remainder, quot;
 	unsigned long int largest = 1000000000000000;
 
-	while (count < 98)
+	printf("%lu, %lu, ",first, second);
+	while (count <= 98)
 	{
+		next = first + second;
+		first = second;
+		second = next;
 		if (next > largest)
 		{
 			quot = next / largest;
@@ -21,9 +25,6 @@ int main(void)
 		{
 			printf("%lu", next);
 		}
-		next = first + second;
-		first = second;
-		second = next;
 		if (count < 97)
 			printf(", ");
 		count++;
