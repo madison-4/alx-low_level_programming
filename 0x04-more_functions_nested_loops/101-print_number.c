@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * print_number - prints a number
  * @r: number to be printed
@@ -15,6 +16,7 @@ void print_number(int r)
 	if (r == -2147483648)
 	{
 		_puts("-2147483648");
+		exit(EXIT_SUCCESS);
 	}
 	else if (r < 0)
 	{
