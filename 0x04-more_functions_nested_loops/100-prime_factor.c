@@ -25,15 +25,17 @@ int isprime(long long int n)
  */
 int print(long long int n)
 {
-	int i, prime = 1;
+	int prime, div = 2;
 
-	for (i = 2; i <= (n / 2); i++)
+	while (div < n)
 	{
-		if ((n % i) == 0)
+		if ((n % div) == 0)
 		{
-			if((isprime(i)) && i > prime)
-				prime = i;
+			prime = div;
+			n = n / div;
 		}
+		else
+			div = div + 1;
 	}
 	return (prime);
 }
