@@ -1,26 +1,58 @@
 #include "main.h"
 /**
  * print_number - prints a number
- * @n: number to be printed
+ * @r: number to be printed
  * Return: no return
  */
-void print_number(int n)
+void print_number(int r)
 {
 	int remainder, quotient;
 
-	if (n < 0)
+	if (!r)
+	{
+		_putchar(48);
+	}
+	if (r == -2147483648)
+	{
+		_puts("-2147483648");
+	}
+	else if (r < 0)
 	{
 		_putchar('-');
-		n *= -1;
+		r = -r;
 	}
-	remainder = n % 10;
-	quotient = n / 10;
-	if(quotient > remainder)
-		print_number(quotient);
+	remainder = r % 10;
+	quotient = r / 10;
+	if (quotient)
+		printint(quotient);
+	_putchar(remainder + '0');
+}
+#include "main.h"
+
+/**
+ *_puts - this function prints a string
+ * @str: string to be printed
+ * Return: length of a string
+ */
+
+int _puts(char *str)
+{
+	int len = 0, count = 0;
+
+	if (!str)
+	{
+		str = "(null)";
+		count += _puts(str);
+		return (count);
+	}
 	else
 	{
-		_putchar(remainder + 48);
-		return;
+		while (str[len] != '\0')
+		{
+			_putchar(str[len]);
+			len++;
+			count++;
+		}
 	}
-	_putchar(remainder + 48);
+	return (count);
 }
