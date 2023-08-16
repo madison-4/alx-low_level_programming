@@ -7,7 +7,7 @@
 int main(void)
 {
 	unsigned long first = 1, second = 2, next, count = 2, remainder, quot;
-	unsigned long int largest = 1000000000000;
+	unsigned long int largest = 10000000000;
 
 	printf("%lu, %lu, ", first, second);
 	while (count <= 98)
@@ -19,7 +19,7 @@ int main(void)
 		{
 			quot = next / largest;
 			remainder = next % largest;
-			printf("%lu%lu", quot, remainder);
+			printf("%lu%010lu", quot, remainder);
 		}
 		else
 		{
