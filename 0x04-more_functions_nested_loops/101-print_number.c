@@ -24,7 +24,7 @@ void print_number(int r)
 	remainder = r % 10;
 	quotient = r / 10;
 	if (quotient)
-		printint(quotient);
+		print_number(quotient);
 	_putchar(remainder + '0');
 }
 #include "main.h"
