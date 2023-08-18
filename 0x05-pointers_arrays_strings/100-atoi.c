@@ -6,7 +6,7 @@
  */
 int _isdigit(int c)
 {
-	if (( c > 47) && (c < 58))
+	if ((c > 47) && (c < 58))
 		return (1);
 	else
 		return (0);
@@ -18,7 +18,7 @@ int _isdigit(int c)
  */
 int _atoi(char *s)
 {
-	int num = 0, it = 0, sign = 1;
+	long long int num = 0, it = 0, sign = 1;
 
 	while (s[it])
 	{
