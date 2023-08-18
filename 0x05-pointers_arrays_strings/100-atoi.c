@@ -1,5 +1,5 @@
 #include "main.h"
-11;rgb:0000/0000/0000/**
+/**
  * _isdigit - checks if a character is a digit
  * @c: character to check
  * Return: 1 if it is, 0 otherwise
