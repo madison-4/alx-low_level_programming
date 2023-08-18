@@ -26,7 +26,7 @@ int _atoi(char *s)
 			sign *= -1;
 		if (_isdigit(s[it]))
 		{
-			if  (sign = -1)
+			if  (sign == -1)
 				num = (num * 10) - (s[it] - 48);
 			if (sign == 1)
 				num = (num * 10) + (s[it] - 48);
