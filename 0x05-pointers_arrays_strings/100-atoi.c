@@ -1,4 +1,4 @@
-]0;276;0c#include "main.h"
+#include "main.h"
 /**
  * _isdigit - checks if a character is a digit
  * @c: character to check
@@ -6,7 +6,7 @@
  */
 int _isdigit(int c)
 {
-	if (( c >= 48) (c <= 57))
+	if (( c > 47) && (c < 58))
 		return (1);
 	else
 		return (0);
@@ -22,12 +22,12 @@ int _atoi(char *s)
 
 	while (s[iter])
 	{
-		if (isdigit(s[iter]))
+		if (_isdigit(s[iter]))
 		{
 			if (s[iter - 1] == '-')
 				sign = -1;
 			num = (num * 10) + (s[iter] - 48);
-			if (!isdigit(s[iter + 1]))
+			if (!_isdigit(s[iter + 1]))
 				return (num * sign);
 			iter++;
 			continue;
