@@ -18,7 +18,7 @@ int _isdigit(int c)
  */
 int _atoi(char *s)
 {
-	long long int num = 0, it = 0, sign = 1;
+	long int num = 0, it = 0, sign = 1;
 
 	while (s[it])
 	{
