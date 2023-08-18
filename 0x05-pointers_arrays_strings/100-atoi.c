@@ -18,19 +18,14 @@ int _isdigit(int c)
  */
 int _atoi(char *s)
 {
-	int num = 0, it = 0, sign = 1, checksign = 1;
+	int num = 0, it = 0, sign = 1;
 
 	while (s[it])
 	{
-		if ((s[it] == '-' || s[it] == '+') && !_isdigit(s[it + 1]))
-			checksign = 0;
+		if (s[it] == '-')
+			sign *= -1;
 		if (_isdigit(s[it]))
 		{
-			if (checksign)
-			{
-				if (s[it - 1] == '-')
-					sign = -1;
-			}
 			num = (num * 10) + (s[it] - 48);
 			if (!_isdigit(s[it + 1]))
 				return (num * sign);
