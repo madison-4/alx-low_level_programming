@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _strlen - get the lengty of the string exclusing the terminating null byte
- * @str; string to find lengt
+ * @str: string to find lengt
  * Return: length of the string, an int
  */
 int _strlen(char *str)
