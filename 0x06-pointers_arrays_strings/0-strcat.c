@@ -23,12 +23,14 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	int iterator = 0, start = _strlen(dest), srclen = _strlen(src), i = 1;
+	int iter = 0, lendest = _strlen(dest);
 
-	for (iterator = 0; iterator <= (srclen + 2); iterator++)
+	while (src[iter] != '\0')
 	{
-		dest[start + i] = src[iterator];
-		i++;
+		dest[lendest] = src[iter];
+		iter++;
+		lendest++;
 	}
+	dest[lendest + 1] = '\0';
 	return (dest);
 }
