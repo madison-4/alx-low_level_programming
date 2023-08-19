@@ -10,9 +10,8 @@ int _strcmp(char *s1, char *s2)
 {
 	int difference = 0, iter = 0;
 
-	while (s1[iter] && s2[iter])
+	while ((*(s1 + iter) == *(s2 + iter)) && s1[iter] && s2[iter])
 	{
-		difference += ((s1[iter]) - (s2[iter]));
 		iter++;
 	}
 	difference += (s1[iter] - s2[iter]);
