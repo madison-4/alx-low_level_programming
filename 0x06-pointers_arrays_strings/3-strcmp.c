@@ -12,27 +12,9 @@ int _strcmp(char *s1, char *s2)
 
 	while (s1[iter] && s2[iter])
 	{
-		difference += (s1[iter] - s2[iter]);
+		difference += ((s1[iter]) - (s2[iter]));
 		iter++;
 	}
-	if (s1[iter] || s2[iter])
-	{
-		if (s1[iter])
-		{
-			while (s1[iter])
-			{
-				difference += s1[iter];
-				iter++;
-			}
-		}
-		if (s2[iter])
-		{
-			while (s2[iter])
-			{
-				difference += s2[iter];
-				iter++;
-			}
-		}
-	}
+	difference += (s1[iter] - s2[iter]);
 	return (difference);
 }
