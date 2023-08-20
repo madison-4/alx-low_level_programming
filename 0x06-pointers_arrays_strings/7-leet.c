@@ -12,7 +12,7 @@ char *leet(char *c)
 
 	while (c[iter])
 	{
-		for (arriter = 0; c[arriter]; arriter++)
+		for (arriter = 0; let[arriter]; arriter++)
 		{
 			if (c[iter] == (let[arriter] || (let[arriter] - 32)))
 				c[iter] = rep[arriter];
