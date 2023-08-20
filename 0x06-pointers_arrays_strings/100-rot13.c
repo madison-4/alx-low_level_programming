@@ -21,7 +21,7 @@ char *rot13(char *s)
 
 	while (s[i])
 	{
-		while (_islpha(s[i]))
+		while (_isalpha(s[i]))
 		{
 			if (((s[i] >= 78) && (s[i] <= 90)) || ((s[i] >= 110) && (s[i] <= 122)))
 				s[i] = (s[i] - 13);
