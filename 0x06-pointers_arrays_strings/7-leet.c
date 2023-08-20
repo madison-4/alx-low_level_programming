@@ -14,7 +14,7 @@ char *leet(char *c)
 	{
 		for (arriter = 0; let[arriter]; arriter++)
 		{
-			if (c[iter] == (let[arriter] || (let[arriter] - 32)))
+			if (c[iter] == let[arriter] || c[iter] == let[arriter] - 32)))
 				c[iter] = rep[arriter];
 		}
 		iter++;
