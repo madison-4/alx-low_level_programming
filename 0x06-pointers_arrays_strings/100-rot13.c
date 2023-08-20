@@ -6,14 +6,14 @@
  */
 char *rot13(char *s)
 {
-	int iter = 0;
+	int i = 0;
 
-	while (s[iter])
+	while (s[i])
 	{
-		if (((s[iter] >= 78) && (s[iter] <= 90)) || ((s[iter] >= 110) && (s[iter] <= 122)))
-			s[iter] = (s[iter] + 13);
-		s[iter] = (s[iter] + 13);
-		iter++;
+		if (((s[i] >= 78) && (s[i] <= 90)) || ((s[i] >= 110) && (s[i] <= 122)))
+			s[i] = (s[i] - 13);
+		s[i] = (s[i] + 13);
+		i++;
 	}
 	return (s);
 }
