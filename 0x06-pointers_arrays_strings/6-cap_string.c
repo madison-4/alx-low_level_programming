@@ -35,12 +35,12 @@ int checkstr(char *a, char c)
  */
 char *cap_string(char *s)
 {
-	char sep[] =" \t\n,;.,!?(){}";
+	char sep[] = " \t\n,;.,!?(){}";
 	int iter = 0;
 
 	while (s[iter])
 	{
-		if ((checkstr(sep, s[iter])) || s[iter] == 34)
+		if ((checkstr(sep, s[iter])) || s[iter] == 34 || iter == 0)
 		{
 			if (_islower(s[iter + 1]) && s[iter + 1])
 				s[iter + 1] = ((s[iter + 1] - 32));
