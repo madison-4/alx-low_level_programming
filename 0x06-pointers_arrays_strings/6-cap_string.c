@@ -40,7 +40,12 @@ char *cap_string(char *s)
 
 	while (s[iter])
 	{
-		if ((checkstr(sep, s[iter])) || s[iter] == 34 || iter == 0)
+		if (iter == 0)
+		{
+			if (_islower(s[iter]))
+				s[iter] = (s[iter] - 32);
+		}
+		if ((checkstr(sep, s[iter])) || s[iter] == 34)
 		{
 			if (_islower(s[iter + 1]) && s[iter + 1])
 				s[iter + 1] = ((s[iter + 1] - 32));
