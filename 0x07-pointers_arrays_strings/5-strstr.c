@@ -7,7 +7,7 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int iter1, iter 2;
+	int iter1, iter2;
 
 	for (iter1 = 0; haystack[iter1]; iter1++)
 	{
