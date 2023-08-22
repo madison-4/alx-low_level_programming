@@ -17,7 +17,7 @@ char *_strstr(char *haystack, char *needle)
 				break;
 		}
 	if (needle[iter2] == '\0')
-		return (char *)haystack + iter1;
+		return (haystack + iter1);
 	}
-	return NULL;
+	return (NULL);
 }
