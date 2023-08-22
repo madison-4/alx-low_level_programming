@@ -8,7 +8,7 @@ int _strlen(char *str)
 {
 	int len = 0;
 
-	while (*str)
+	while (*str != '\0')
 	{
 		len++;
 		str++;
@@ -21,11 +21,12 @@ int _strlen(char *str)
  * @n2: second integer
  * @r: buffer to store result
  * @size_r: size of r
+ * Return: charctsr sum of the addition
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int iter, carry = 0, n1len = _strlen(n1), n2len = _strlen(n2);
-	int fill = size_r;
+	int iter, carry = 0, n1len = (_strlen(n1) - 1), n2len = (_strlen(n2) - 1);
+	int fill = size_r - 1, count = 0;
 
 	while ((n1len >= 0) || (n2len >= 0))
 	{
@@ -41,6 +42,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		n1len--;
 		n2len--;
 		fill--;
+		count++;
 	}
+	for (iter = 0; iter < count; iter++)
+	{
+		r[iter] = r[fill];
+	}
+	r[count] = '\0';
 	return (r);
 }
