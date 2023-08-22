@@ -5,7 +5,7 @@
  * @accept: string compared tpo
  * Return: number of bytes present
  */
-int _strspn(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
 	int count = 0, iter = 0, begin = 0;
 
