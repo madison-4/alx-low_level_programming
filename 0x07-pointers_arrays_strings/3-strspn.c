@@ -16,7 +16,7 @@ unsigned int _strspn(char *s, char *accept)
 			if (s[begin] == accept[iter])
 			{
 				count++;
-				continue;
+				break;
 			}
 		}
 		begin++;
