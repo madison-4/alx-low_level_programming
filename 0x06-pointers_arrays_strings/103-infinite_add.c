@@ -26,7 +26,7 @@ int _strlen(char *str)
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int iter, carry = 0, n1len = (_strlen(n1) - 1), n2len = (_strlen(n2) - 1);
-	int fill = size_r - 1, count = 0;
+	int fill = size_r - 1, count = 0, i;
 
 	while ((n1len >= 0) || (n2len >= 0))
 	{
@@ -36,7 +36,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			n2[n2len] = 0;
 		iter = ((((int)n1[n1len]) + ((int)n2[n2len])) + carry) % 10;
 		carry = ((((int)n1[n1len]) + ((int)n2[n2len])) + carry) / 10;
-		if (fill <= 0)
+		if (fill < 0)
 			return (0);
 		r[fill] = (char) iter;
 		n1len--;
@@ -44,10 +44,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		fill--;
 		count++;
 	}
-	for (iter = 0; iter < count; iter++)
+	for (i = 0; i < count; i++, fill++)
 	{
 		r[iter] = r[fill];
 	}
-	r[count] = '\0';
+	r[count + 1] = '\0';
 	return (r);
 }
