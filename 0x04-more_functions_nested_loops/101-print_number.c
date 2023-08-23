@@ -1,15 +1,15 @@
 #include "main.h"
-#include <stdlib.h>
+
 /**
  * print_number - prints a number
- * @r: number to be printed
+ * @n: number to be printed
  * No return
  */
-void print_number(int r)
+void print_number(int n)
 {
-	unsigned int r = r;
-	
-	if (r < 0)
+	unsigned int r = n;
+
+	if (n < 0)
 	{
 		_putchar('-');
 		r *= -1;
