@@ -1,53 +1,66 @@
-#include "main.h"
 /**
- * _strlen - get length of a string
- * @str: char pointer
- * Return: length of the string
- */
-int _strlen(char *str)
-{
-	int len = 0;
-
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
-/**
- * infinite_add - adds two integers stored as strings
- * @n1: first integer
- * @n2: second integer
- * @r: buffer to store result
- * @size_r: size of r
- * Return: charctsr sum of the addition
+ * infinite_add - Add up two numbers stored in given char arrays
+ * @n1: The first number
+ * @n2: The second number
+ * @r: Pointer to the buffer to store result
+ * @size_r: The size of the buffer
+ *
+ * Return: 0 if buffer too small to store result, else return pointer to buffer
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int iter, carry = 0, n1len = (_strlen(n1) - 1), n2len = (_strlen(n2) - 1);
-	int fill = size_r - 1, count = 0, i;
+	int l1, l2, tmpl, rl, i, sum, num1, num2, carry;
+	char tmp[10000];
 
-	while ((n1len >= 0) || (n2len >= 0))
+	rl = i = l1 = l2 = sum = num1 = num2 = carry = 0;
+	while (n1[l1] != '\0')
+		l1++;
+	while (n2[l2] != '\0')
+		l2++;
+	if (l1 + 2 > size_r || l2 + 2 > size_r)
+		return (0);
+	l1--;
+	l2--;
+	while (i <= l1 || i <= l2)
 	{
-		if (!(n1[n1len]))
-			n1[n1len] = 0;
-		if (!(n2[n2len]))
-			n2[n2len] = 0;
-		iter = ((((int)n1[n1len]) + ((int)n2[n2len])) + carry) % 10;
-		carry = ((((int)n1[n1len]) + ((int)n2[n2len])) + carry) / 10;
-		if (fill < 0)
-			return (0);
-		r[fill] = (char) iter;
-		n1len--;
-		n2len--;
-		fill--;
-		count++;
+		num1 = num2 = 0;
+		if (i <= l1)
+			num1 = n1[l1 - i] - '0';
+		if (i <= l2 && (l2 - i) >= 0)
+			num2 = n2[l2 - i] - '0';
+		sum = num1 + num2 + carry;
+		if (sum >= 10)
+		{
+			carry = 1;
+			sum -= 10;
+		}
+		else
+			carry = 0;
+		r[i] = sum + '0';
+		i++;
+		rl++;
 	}
-	for (i = 0; i < count; i++, fill++)
+	if (carry > 0)
 	{
-		r[iter] = r[fill];
+		r[i] = carry + '0';
+		r[i + 1] = '\0';
 	}
-	r[count + 1] = '\0';
+	i = tmpl = 0;
+	while (i <= rl)
+	{
+		tmp[i] = r[rl - i];
+		tmpl++;
+		i++;
+	}
+	i = 0;
+	while (i < tmpl)
+	{
+		if (r[i] == '\0')
+		{
+			break;
+		}
+		r[i] = tmp[i];
+		i++;
+	}
 	return (r);
 }
