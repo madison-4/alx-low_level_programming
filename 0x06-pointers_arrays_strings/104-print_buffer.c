@@ -12,10 +12,10 @@ void print_buffer(char *b, int size)
 
 	for (iter = 0; iter < size; iter += 10)
 	{
-		printf("%02x ", i);
+		printf("%08x: ", iter);
 		for (i = 0; i < 10 && ((i + iter) < size); i++)
 		{
-			printf("%02x ",(unsigned char)b[i + iter]);
+			printf("%02x ", b[i + iter]);
 			if (isprint(b[i + iter]))
 				putchar(b[i + iter]);
 			else
