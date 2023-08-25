@@ -1,66 +1,75 @@
+#include "main.h"
 /**
- * infinite_add - Add up two numbers stored in given char arrays
- * @n1: The first number
- * @n2: The second number
- * @r: Pointer to the buffer to store result
- * @size_r: The size of the buffer
- *
- * Return: 0 if buffer too small to store result, else return pointer to buffer
+ * _strlen - get the length of a sttring
+ * @str: string to dinf length of
+ * Return: length of the string
+ */
+int _strlen(char *str)
+{
+	int length = 0;
+
+	while (*str)
+	{
+		length++;
+		str++;
+	}
+	return (length);
+}
+/**
+ * _rev - reverse a string
+ * @str: string to reverse
+ * no Return
+ */
+void _rev(char *str)
+{
+	int iter = 0, length = _strlen(str);
+	char temp;
+
+	for (iter = 0; iter < (length / 2); iter++)
+	{
+		temp = str[iter];
+		str[iter] = str[length - iter - 1];
+		str[length - iter - 1] = temp;
+	}
+}
+/**
+ * infinite_add - add two numbers and store them in a buffer
+ * if the szie of the buffer is not enough, return 0
+ * use strings as the numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer to store results
+ * @size_r: size of the buffer
+ * Return: pointer to storage buffer
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int l1, l2, tmpl, rl, i, sum, num1, num2, carry;
-	char tmp[10000];
+	int len1 = _strlen(n1), len2 = _strlen(n2), digit1, sum = 0, carry = 0;
+	int maxlen, fill = 0, iter1, iter2, digit2;
 
-	rl = i = l1 = l2 = sum = num1 = num2 = carry = 0;
-	while (n1[l1] != '\0')
-		l1++;
-	while (n2[l2] != '\0')
-		l2++;
-	if (l1 + 2 > size_r || l2 + 2 > size_r)
+	maxlen = len1 > len2 ? len1 : len2;
+	if ((maxlen + 1) > size_r)
 		return (0);
-	l1--;
-	l2--;
-	while (i <= l1 || i <= l2)
+	iter1 = len1 - 1;
+	iter2 = len2 - 1;
+	while (iter1 >= 0 || iter2 >= 0 || carry)
 	{
-		num1 = num2 = 0;
-		if (i <= l1)
-			num1 = n1[l1 - i] - '0';
-		if (i <= l2 && (l2 - i) >= 0)
-			num2 = n2[l2 - i] - '0';
-		sum = num1 + num2 + carry;
-		if (sum >= 10)
+		digit1 = (iter1 >= 0) ? n1[iter1] - '0' : 0;
+		digit2 = (iter2 >= 0) ? n2[iter2] - '0' : 0;
+
+		sum = digit1 + digit2 + carry;
+		carry = sum / 10;
+		if (fill < (size_r - 1))
 		{
-			carry = 1;
-			sum -= 10;
+			r[fill] = (sum % 10) + '0';
 		}
 		else
-			carry = 0;
-		r[i] = sum + '0';
-		i++;
-		rl++;
+			return (0);
+		fill++;
+		iter1--;
+		iter2--;
 	}
-	if (carry > 0)
-	{
-		r[i] = carry + '0';
-		r[i + 1] = '\0';
-	}
-	i = tmpl = 0;
-	while (i <= rl)
-	{
-		tmp[i] = r[rl - i];
-		tmpl++;
-		i++;
-	}
-	i = 0;
-	while (i < tmpl)
-	{
-		if (r[i] == '\0')
-		{
-			break;
-		}
-		r[i] = tmp[i];
-		i++;
-	}
+	r[fill] = '\0';
+	_rev(r);
 	return (r);
 }
