@@ -20,7 +20,7 @@ void print_buffer(char *b, int size)
 		for (i = 0; i < 10 && ((i + iter) < size); i++)
 		{
 			if (isprint(b[i + iter]))
-			    putchar(b[i + iter]);
+				putchar(b[i + iter]);
 			else
 				putchar('.');
 		}
