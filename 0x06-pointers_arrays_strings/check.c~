@@ -1,0 +1,36 @@
+#include "main.h"
+#include<stdio.h>
+#include<ctype.h>
+/**
+ * print_buffer - prints a buffer with null bytes
+ * @b: buffer
+ * @size: size of the buffer
+ * Return: no return
+ */
+void print_buffer(char *b, int size)
+{
+	int o = 0, j, i, c;
+
+	if (size <= 0)
+	{
+		putchar('\n');
+		return;
+	}
+	while (o < size)
+	{
+		j = (size - o) < 10 ? (size - o) : 10;
+		printf("%08x: ", o);
+
+		for (i = 0; i < 10; i++)
+		{
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf("  ");
+			if (i % 2)
+				printf(" ");
+		}
+		for (i = 0; i < j; i++)
+		{
+			c = *(b + o + i);
+			if 9

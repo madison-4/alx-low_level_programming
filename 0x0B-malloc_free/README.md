@@ -1,2 +1,0 @@
-# About
-Dynamic memory allocation
