@@ -1,29 +1,44 @@
+#include "main.h"
 #include<stdio.h>
 #include<ctype.h>
 /**
- * print_buffer - prints a buffer, not null terminated
- * @b: uffer ponter
+ * print_buffer - prints a buffer with null bytes
+ * @b: buffer
  * @size: size of the buffer
- * no return
+ * Return: no return
  */
 void print_buffer(char *b, int size)
 {
-	int iter = 0, i;
+	int o = 0, j, i, c;
 
-	for (iter = 0; iter < size; iter += 10)
+	if (size <= 0)
 	{
-		printf("%08x: ", iter);
-		for (i = 0; i < 10 && ((i + iter) <= size); i += 2)
+		putchar('\n');
+		return;
+	}
+	while (o < size)
+	{
+		j = (size - o) < 10 ? (size - o) : 10;
+		printf("%08x: ", o);
+
+		for (i = 0; i < 10; i++)
 		{
-			printf("%02x%02x ", b[i + iter], b[i + 1 + iter]);
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf("  ");
+			if (i % 2)
+				printf(" ");
 		}
-		for (i = 0; i < 10 && ((i + iter) < size); i++)
+		for (i = 0; i < j; i++)
 		{
-			if (isprint(b[i + iter]))
-				putchar(b[i + iter]);
+			c = *(b + o + i);
+			if (isprint(c))
+				putchar(c);
 			else
 				putchar('.');
 		}
 		putchar('\n');
+		o += 10;
 	}
 }
