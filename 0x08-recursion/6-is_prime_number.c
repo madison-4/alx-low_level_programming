@@ -11,7 +11,7 @@ int checkprime(int n, int guess)
 		return (1);
 	if (!(n % guess))
 		return (0);
-	return (checkprime(n, guess = 1));
+	return (checkprime(n, guess + 1));
 }
 /**
  * is_prime_number - checks if a number is prime or not
