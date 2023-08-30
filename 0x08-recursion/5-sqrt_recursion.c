@@ -6,7 +6,7 @@
  */
 int _sqrt_recursion(int n)
 {
-	int guess = (n / 2), better = ((guess + x) / 2);
+	int guess = (n / 2), better = ((guess + n) / 2);
 
 	if (n < 1)
 		return (-1);
