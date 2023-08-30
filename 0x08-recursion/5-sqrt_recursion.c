@@ -1,10 +1,10 @@
 #include "main.h"
 int findroot(int number, int guess)
 {
-	if ((root * root) > number)
+	if ((guess * guess) > number)
 		return (-1);
-	if ((root * root) == number)
-		return (root);
+	if ((guess * guess) == number)
+		return (guess);
 	else
 		return (findroot(number, guess + 1));
 }
