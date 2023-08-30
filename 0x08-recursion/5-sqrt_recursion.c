@@ -1,4 +1,13 @@
 #include "main.h"
+int findroot(int number, int guess)
+{
+	if ((root * root) > number)
+		return (-1);
+	if ((root * root) == number)
+		return (root);
+	else
+		return (findroot(number, guess + 1));
+}
 /**
  * _sqrt_recursion - get the sqaure root using recursion
  * @n: number whose squareroot is to be found
@@ -6,13 +15,9 @@
  */
 int _sqrt_recursion(int n)
 {
-	int guess = (n / 2), better = ((guess + n) / 2);
-
 	if (n < 0)
 		return (-1);
 	if (n == 0)
 		return (0);
-	if (guess == better)
-		return (better);
-	return (_sqrt_recursion(better));
+	return (findroot(n, 1));
 }
