@@ -10,8 +10,6 @@ int _sqrt_recursion(int n)
 
 	if (n < 1)
 		return (-1);
-	if (n == 1)
-		return (1);
 	if (guess == better)
 		return (better);
 	return (_sqrt_recursion(better));
