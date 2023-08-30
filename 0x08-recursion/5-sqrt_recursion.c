@@ -8,8 +8,10 @@ int _sqrt_recursion(int n)
 {
 	int guess = (n / 2), better = ((guess + n) / 2);
 
-	if (n < 1)
+	if (n < 0)
 		return (-1);
+	if (n == 0)
+		return (0);
 	if (guess == better)
 		return (better);
 	return (_sqrt_recursion(better));
