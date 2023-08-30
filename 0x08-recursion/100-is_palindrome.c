@@ -37,6 +37,7 @@ int checkpalindrome(char *str, int begin, int len)
 int is_palindrome(char *s)
 {
 	int begin = 0, len = (_strlen_recursion(s) - 1);
+
 	if (*s == '\0')
 		return (1);
 	return (checkpalindrome(s, begin, len));
