@@ -9,7 +9,7 @@ int **alloc_grid(int width, int columns)
 {
 	int **ipp, iter, iter2;
 
-	if (width <= 0 || Height <= 0)
+	if (width <= 0 || columns <= 0)
 		return (NULL);
 	ipp = malloc(columns * (sizeof(int *)));
 	if (ipp == NULL)
