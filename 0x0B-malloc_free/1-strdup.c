@@ -22,7 +22,7 @@ int _strlen(char *str)
 char *_strdup(char *str)
 {
 	char *new;
-	int fill = _strlen(str), iter;
+	int fill = 1 + _strlen(str), iter;
 
 	if ((fill == 0) || (!(str)))
 		return (NULL);
