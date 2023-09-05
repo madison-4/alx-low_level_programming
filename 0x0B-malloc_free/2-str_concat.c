@@ -73,6 +73,6 @@ char *str_concat(char *s1, char *s2)
 		new[iter] = s2[iter];
 		iter++;
 	}
-	new[iter] = 0;
+	new[iter] = '\0';
 	return (new);
 }
