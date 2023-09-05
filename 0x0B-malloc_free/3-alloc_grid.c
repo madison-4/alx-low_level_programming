@@ -19,7 +19,7 @@ int **alloc_grid(int width, int columns)
 		ipp[iter] = (int *)malloc(width * sizeof(int));
 		if (ipp[iter] == NULL)
 		{
-			for (iter2 = iter; iter2 >= 0; iter2--)
+			for (iter2 = (iter - 1); iter2 >= 0; iter2--)
 			{
 				free(ipp[iter2]);
 			}
