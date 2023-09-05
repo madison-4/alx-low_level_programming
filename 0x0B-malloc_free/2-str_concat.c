@@ -66,10 +66,6 @@ char *str_concat(char *s1, char *s2)
 	new = malloc((sizeof(char) * size));
 	if (new == NULL)
 		return (NULL);
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
 	for (iter = 0; s1[iter]; iter++)
 		new[iter] = s1[iter];
 	while (s2[it])
