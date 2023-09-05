@@ -23,6 +23,7 @@ int **alloc_grid(int width, int columns)
 			{
 				free(ipp[iter2]);
 			}
+			free(ipp);
 			return (NULL);
 		}
 		for (iter2 = 0; iter2 < width; iter2++)
