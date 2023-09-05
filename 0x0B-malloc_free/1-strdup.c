@@ -24,7 +24,7 @@ char *_strdup(char *str)
 	char *new;
 	int fill = _strlen(str), iter;
 
-	if ((fill == 0) || (str == NULL))
+	if ((fill == 0) || (!(str)))
 		return (NULL);
 	new = malloc(sizeof(char) * fill);
 	if (new == NULL)
