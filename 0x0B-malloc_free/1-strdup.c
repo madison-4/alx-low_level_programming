@@ -1,39 +1,32 @@
-#include "main.h"
-/**
- * _strlen - find length of a string
- * @str: string to find length of
- * Return: length of string
- */
-int _strlen(char *str)
-{
-	int len = 0, iter;
+#include <stdlib.h>
 
-	for (iter = 0; str[iter]; iter++)
-	{
-		len++;
-	}
-	return (len);
-}
 /**
- * _strdup - clone strdup from stdlib
- * @str: string to be copied
+ * _strdup - duplicates a string into newly allocated array
+ *
+ * @str: string to duplicate
+ *
  * Return: pointer to new string
  */
 char *_strdup(char *str)
 {
-	char *new;
-	int fill = 1 + _strlen(str), iter;
+	int size = 0;
+	char *ptr, *ret;
 
-	if (str == NULL)
+	if (!str)
 		return (NULL);
-	if (fill == 0)
+
+	ptr = str;
+	while (*ptr++)
+		size++;
+
+	ret = malloc(size + 1);
+	if (!ret)
 		return (NULL);
-	new = malloc(sizeof(char) * fill);
-	if (new == NULL)
-		return (NULL);
-	for (iter = 0; iter < fill; iter++)
-	{
-		new[iter] = str[iter];
-	}
-	return (new);
+
+	ptr = ret;
+	while (*str)
+		*ptr++ = *str++;
+
+	*ptr = 0;
+	return (ret);
 }
