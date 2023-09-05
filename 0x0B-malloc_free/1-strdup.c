@@ -24,8 +24,7 @@ char *_strdup(char *str)
 	char *new;
 	int fill = 1 + _strlen(str), iter;
 
-
-	if (str ==0)
+	if (str == NULL)
 		return (NULL);
 	if (fill == 0)
 		return (NULL);
