@@ -60,7 +60,8 @@ char *_strcat(char *dest, char *src)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1 = _strlen(s1), len2 = _strlen(s2), size = len1 + len2 + 1, iter, it = 0;
+	int len1 = _strlen(s1), len2 = _strlen(s2), size = len1 + len2 + 1;
+	int iter, it = 0;
 	char *new;
 
 	new = malloc((sizeof(char) * size));
