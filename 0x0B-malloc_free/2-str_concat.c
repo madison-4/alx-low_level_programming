@@ -60,15 +60,19 @@ char *_strcat(char *dest, char *src)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1 = _strlen(s1), len2 = _strlen(s2), size = len1 + len2;
+	int len1 = _strlen(s1), len2 = _strlen(s2), size = len1 + len2 + 1, iter;
 	char *new;
 
-	if ((len1 == 0) && (len2 == 0))
-		return (NULL);
-	new = malloc(sizeof(char) * size);
+	new = malloc((sizeof(char) * size));
 	if (new == NULL)
-	  return (NULL);
-	s1 = _strcat(s1, s2);
-	new = _strcpy(new, s1);
+		return (NULL);
+	for (iter = 0; s1[iter]; iter++)
+		new[iter] = s1[iter];
+	while(s2[iter])
+	{
+		new[iter] = s2[iter];
+		iter++;
+	}
+	new[iter] = 0;
 	return (new);
 }
