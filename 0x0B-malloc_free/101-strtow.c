@@ -82,6 +82,8 @@ char **strtow(char *str)
 			count++;
 	}
 	strings = malloc(count * (sizeof(char *)));
+	if (!(strings))
+		return (NULL);
 	iter = 0;
 	while (iter < len)
 	{
