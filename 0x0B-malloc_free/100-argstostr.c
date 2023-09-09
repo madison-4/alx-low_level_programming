@@ -7,7 +7,7 @@
  */
 char *argstostr(int size, char **av)
 {
-	int length = 0, iter = 0;
+	int length = 0, iter = 0, arr = 0, status = 0;
 	char *new;
 
 	if ((size == 0) || (av == NULL))
