@@ -24,8 +24,8 @@ char *argstostr(int size, char **av)
 		return (NULL);
 	for (iter = 0; iter < size; iter++)
 	{
-		for (arr = 0; arr[iter][arr]; arr++)
-			new[status] = arr[iter][arr];
+		for (arr = 0; av[iter][arr]; arr++)
+			new[status] = av[iter][arr];
 		new[++status] = '\n';
 	}
 	new[++status] = '\0';
