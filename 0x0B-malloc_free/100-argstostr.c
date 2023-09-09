@@ -19,14 +19,14 @@ char *argstostr(int size, char **av)
 		length++;
 	}
 	length++;
-	new = malloc((length * sizeof(char)) + 1);
+	new = malloc(length * sizeof(char));
 	if (new == NULL)
 		return (NULL);
 	for (iter = 0; iter < size; iter++)
 	{
-		for (arr = 0; av[iter][arr]; arr++)
+		for (arr = 0; av[iter][arr]; arr++, status++)
 			new[status] = av[iter][arr];
-		new[++status] = '\n';
+		new[status++] = '\n';
 	}
 	new[++status] = '\0';
 	return (new);
