@@ -60,14 +60,14 @@ char *_strchr(char *s, char c)
  */
 char **strtow(char *str)
 {
-	int len   ==_strlen(str), count = 0, iter = 0, old;
-	char separators[] = " ;'.";
+	int len = _strlen(str), count = 0, iter = 0, old, index = 0, subchr = 0;
+	char separators[] = " ;'.", **strings, buffer[32000];
 
 	while (iter < len)
 	{
 		while(iter < len)
 		{
-			if (_strchr(separators, str[iter]) == NULL)
+			if (!(_strchr(separators, str[iter])))
 				break;
 			iter++;
 		}
@@ -78,8 +78,34 @@ char **strtow(char *str)
 				break;
 			iter++;
 		}
-		if (i > old)
+		if (iter > old)
 			count++;
 	}
-
+	strings = malloc(count * (sizeof(char *)));
+	iter = 0;
+	while (iter < len)
+	{
+		while (iter < len)
+		{
+			if (_strchr(separators, str[iter]) == NULL)
+				break;
+			iter++;
+		}
+		while (iter < len)
+		{
+			if (!(_strchr(separators, str[iter])))
+				break;
+			buffer[subchr] = str[iter];
+			iter++;
+			subchr++;
+		}
+		if (subchr > 0)
+		{
+			buffer[subchr] = '\0';
+			strings[index] = malloc(sizeof(char) * (_strlen(buffer) + 1));
+			_strcpy(strings[index], buffer);
+			index++;
+		}
+	}
+	return (strings);
 }
