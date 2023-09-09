@@ -1,45 +1,62 @@
 #include "main.h"
 /**
- * _alphanumeric - checks if a char is alphanumeric
- * @c: charcter to be checked
- * Return: 1 if it is, 0 if it isn't
+ * _strlen - get the length of a string
+ * @s: string
+ * Return: length of the string
  */
-int _alphanumeric(char c)
+int _strlen(char *s)
 {
-	if (((c >= 48) && (c <=57)) || ((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
-		return (1);
-	return (0);
+	int length = 0, iterator;
+
+	for (iterator = 0; s[iterator] != '\0'; iterator++)
+	{
+		length++;
+	}
+	return (length);
 }
 /**
- * strtow - splits a string to words
- * @str: passed string
- * Return: pointer to the array of split strings
+ * _strcpy - copy a string
+ * @src: address o source string
+ * @dest: destination address
+ * Return: pointer to new address
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+/**
+ * _strchr - locate a charactr in a string
+ * @s: string to be looked into
+ * @c: character to find
+ * Return: first occurrence if caracter or NULL if it's not found
+ */
+char *_strchr(char *s, char c)
+{
+	int iter;
+
+	for (iter = 0; s[iter] != '\0'; iter++)
+	{
+		if (s[iter] == c)
+		{
+			return (s + iter);
+		}
+	}
+	if (c == '\0')
+		return (s + iter);
+	return (NULL);
+}
+/**
+ * strtow - split a strimg to words
+ * @str: string to be split
+ * Return: pointer to array of split substrings
  */
 char **strtow(char *str)
 {
-	int len = 0, iter, word = 0, sent = 0;
-	char **words;
-
-	if ((str == NULL) || (*str == '\0'))
-		return (NULL);
-	for (iter = 0; str[iter]; iter++)
-		len++;
-	words = malloc(sizeof(char) * len);
-	if (words == NULL)
-		return (NULL);
-	for (iter = 0; str[iter]; iter++)
-	{
-		if (_alphanumeric(str[iter]))
-		{
-			while (str[iter] != ' ')
-			{
-				words[word][sent] = str[iter];
-				iter++;
-				sent++;
-			}
-			words[word][sent] = '\0';
-			word++;
-		}
-	}
-	return (words);
-}
+	int len   ==_strlen(str)
