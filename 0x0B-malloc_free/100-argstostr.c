@@ -38,7 +38,7 @@ char *_strcat(char *dest, char *src)
 }
 /**
  * argstostr - concatenate  all argumenst given to a program
- * @ac: argument count
+ * @size: argument count
  * @av: argument vector array
  * Return: pointer to new string array
  */
