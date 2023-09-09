@@ -20,7 +20,7 @@ char **strtow(char *str)
 	int len = 0, iter, word = 0, sent = 0;
 	char **words;
 
-	if ((str == NULL) || (str == ""))
+	if ((str == NULL) || (str == '\0'))
 		return (NULL);
 	for (iter = 0; str[iter]; iter++)
 		len++;
