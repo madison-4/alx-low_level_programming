@@ -54,9 +54,32 @@ char *_strchr(char *s, char c)
 }
 /**
  * strtow - split a strimg to words
+ * iter is simply an itrterator that goes thrpough the string
  * @str: string to be split
  * Return: pointer to array of split substrings
  */
 char **strtow(char *str)
 {
-	int len   ==_strlen(str)
+	int len   ==_strlen(str), count = 0, iter = 0, old;
+	char separators[] = " ;'.";
+
+	while (iter < len)
+	{
+		while(iter < len)
+		{
+			if (_strchr(separators, str[iter]) == NULL)
+				break;
+			iter++;
+		}
+		old = iter;
+		while (iter < len)
+		{
+			if (_strchr(separators, str[iter]) != NULL)
+				break;
+			iter++;
+		}
+		if (i > old)
+			count++;
+	}
+
+}
