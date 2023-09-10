@@ -68,7 +68,7 @@ int countwords(char *str)
 			if (isword)
 			{
 				count++;
-				isowrd = 0;
+				isword = 0;
 			}
 			else
 				isword = 1;
@@ -98,17 +98,16 @@ char **strtow(char *str)
 	{
 		if (str[iter] == ' ' || str[iter] == '\t' || '\n')
 			continue;
-		wordlength = 0;
 		else
 		{
 			old = iter;
-			while (str[iter] != ' ' || str[iter] != '\t' || str[iter] != '\n)
+			while (str[iter] != ' ' || str[iter] != '\t' || str[iter] != '\n')
 			{
 				wordlength++;
 				iter++;
 			}
 			strings[word] = malloc(sizeof(char) * (wordlength + 1));
-			if (strings[word] = NULL)
+			if (strings[word] == NULL)
 				return (NULL);
 			else
 			{
