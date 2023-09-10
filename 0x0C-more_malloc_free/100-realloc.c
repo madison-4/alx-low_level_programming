@@ -1,0 +1,38 @@
+#include "main.h"
+/**
+ * _realloc - clones realloc except it has the old size goven
+ * @old_size: old size of allocated memory
+ * @new_size: new memory block to be allocated
+ * @ptr: previously allocated pointer
+ * Return: pointer to newly allocated memry
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	void *new_ptr;
+	size_t min_size, i;
+	char *old_ptr, new_ptr_char;
+
+	if (ptr == NULL)
+	{
+		if (new_size == 0)
+			return (NULL);
+		return (malloc(new_size));
+	}
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (new_size == old_size)
+		return (ptr);
+	new_ptr = malloc(new_size);
+	if (new_ptr == NULL)
+		return (NULL);
+	min_size = MIN(old_size, new_size);
+	old_ptr = (char *) ptr;
+	new_ptr_char = (char *) new_ptr;
+	for (size_t i = 0; i < min_size; i++)
+		new_ptr_char[i] = old_ptr[i];
+	free(ptr);
+	return (new_ptr);
+}
