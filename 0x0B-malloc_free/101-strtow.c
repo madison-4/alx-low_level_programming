@@ -87,41 +87,30 @@ int countwords(char *str)
  */
 char **strtow(char *str)
 {
-	int count = countwords(str), iter, word = 0, wordlength = 0;
-	int old, wordcount = 0;
-	char **strings;
+	char **words, *space;
+	int iter = 0;
 
-	strings = malloc(sizeof(char *) * count);
-	if (strings == NULL)
+	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (iter = 0; str[iter]; iter++)
+	words = malloc(sizeof(char *) * (_strlen(str) + 1));
+	if (words == NULL)
+		return (NULL);
+	iter = 0;
+	while (*str)
 	{
-		if (str[iter] == ' ' || str[iter] == '\t' || '\n')
-			continue;
+		space = _strchr(str, ' ');
+		if (!(space))
+		{
+			words[iter] = str;
+			str = '\0';
+		}
 		else
 		{
-			old = iter;
-			while (str[iter] != ' ' || str[iter] != '\t' || str[iter] != '\n')
-			{
-				wordlength++;
-				iter++;
-			}
-			strings[word] = malloc(sizeof(char) * (wordlength + 1));
-			if (strings[word] == NULL)
-				return (NULL);
-			else
-			{
-				while (old < iter)
-				{
-					strings[word][wordcount] = str[old];
-					old++;
-					wordcount++;
-				}
-				strings[word][wordcount] = '\0';
-				wordcount = 0;
-			}
-			word++;
+			words[iter] = str;
+			*space = '\0';
+			str = space + 1;
+			iter++;
 		}
+		words[iter] = NULL;
+		return (words);
 	}
-	return (strings);
-}
