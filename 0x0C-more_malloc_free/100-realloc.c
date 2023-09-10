@@ -1,4 +1,5 @@
 #include "main.h"
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 /**
  * _realloc - clones realloc except it has the old size goven
  * @old_size: old size of allocated memory
@@ -10,7 +11,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *new_ptr;
 	size_t min_size, i;
-	char *old_ptr, new_ptr_char;
+	char *old_ptr, *new_ptr_char;
 
 	if (ptr == NULL)
 	{
@@ -31,7 +32,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	min_size = MIN(old_size, new_size);
 	old_ptr = (char *) ptr;
 	new_ptr_char = (char *) new_ptr;
-	for (size_t i = 0; i < min_size; i++)
+	for (i = 0; i < min_size; i++)
 		new_ptr_char[i] = old_ptr[i];
 	free(ptr);
 	return (new_ptr);
