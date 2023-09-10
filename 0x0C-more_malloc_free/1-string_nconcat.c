@@ -22,7 +22,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		new[iter] = s1[iter];
 	for (secit = 0; s2[secit] && secit < n; secit++, iter++)
 		new[iter] = s2[secit];
-	s2[secit + 1] = '\0';
+	new[iter] = '\0';
 	return (new);
 }
 /**
