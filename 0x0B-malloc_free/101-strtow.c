@@ -5,7 +5,7 @@ char **strtow(char *str);
 
 /**
  * word_len - find length of a word substring
- * @str: string to search 
+ * @str: string to search
  * Return: index at the end of the word
  */
 int word_len(char *str)
