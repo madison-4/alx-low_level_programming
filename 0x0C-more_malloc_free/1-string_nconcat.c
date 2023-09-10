@@ -1,4 +1,4 @@
-#include "main,h"
+#include "main.h"
 /**
  * string_nconcat - concatenate two strings in a newly allocated space in mempry
  * @s1: first string
@@ -16,7 +16,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len1++;
 	while (s2[len2] && len2 < n)
 		len2++;
-	new = malloc((len1 + len 2 + 1) * sizeof (char));
+	new = malloc((len1 + len2 + 1) * sizeof (char));
 	if (!(new))
 		return (NULL);
 	for (iter = 0; iter < len1; iter++)
