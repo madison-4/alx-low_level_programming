@@ -111,6 +111,8 @@ char **strtow(char *str)
 			str = space + 1;
 			iter++;
 		}
-		words[iter] = NULL;
-		return (words);
 	}
+	words[iter] = NULL;
+	return (words);
+}
+
