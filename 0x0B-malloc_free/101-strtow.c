@@ -1,118 +1,83 @@
 #include "main.h"
-/**
- * _strlen - get the length of a string
- * @s: string
- * Return: length of the string
- */
-int _strlen(char *s)
-{
-	int length = 0, iterator;
+int word_len(char *str);
+int count_words(char *str);
+char **strtow(char *str);
 
-	for (iterator = 0; s[iterator] != '\0'; iterator++)
+/**
+ * word_len - find length of a word substring
+ * @str: string to search 
+ * Return: index at the end of the word
+ */
+int word_len(char *str)
+{
+	int index = 0, len = 0;
+
+	while (str[index] && (str[index] != ' '))
 	{
-		length++;
+		len++;
+		index++;
 	}
-	return (length);
+	return (len);
 }
 /**
- * _strcpy - copy a string
- * @src: address o source string
- * @dest: destination address
- * Return: pointer to new address
+ * count_words - count words within a string
+ * @str: string to search
+ * Return: number of words contained in str
  */
-char *_strcpy(char *dest, char *src)
+int count_words(char *str)
 {
-	int i;
+	int index = 0, words = 0, len = 0;
 
-	for (i = 0; src[i] != '\0'; i++)
+	for (index = 0; *(str + index); index++)
+		len++;
+	for (index = 0; index < len; index++)
 	{
-		dest[i] = src[i];
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-/**
- * _strchr - locate a charactr in a string
- * @s: string to be looked into
- * @c: character to find
- * Return: first occurrence if caracter or NULL if it's not found
- */
-char *_strchr(char *s, char c)
-{
-	int iter;
-
-	for (iter = 0; s[iter] != '\0'; iter++)
-	{
-		if (s[iter] == c)
+		if (*(str + index) != ' ')
 		{
-			return (s + iter);
+			words++;
+			index += word_len(str + index);
 		}
 	}
-	if (c == '\0')
-		return (s + iter);
-	return (NULL);
+	return (words);
 }
 /**
- * countwords - count the number of words in a string
- * @str: string whose words are to be counted
- * Return: number of words
- */
-int countwords(char *str)
-{
-	int count = 0, isword = 0, iter;
-
-	for (iter = 0; str[iter]; iter++)
-	{
-		if (str[iter] == ' ' || str[iter] == '\t' || str[iter] == '\n')
-		{
-			if (isword)
-			{
-				count++;
-				isword = 0;
-			}
-			else
-				isword = 1;
-
-		}
-	}
-	if (isword)
-		count++;
-	return (count);
-}
-/**
- * strtow - split a strimg to words
- * iter is simply an itrterator that goes thrpough the string
- * @str: string to be split
- * Return: pointer to array of split substrings
+ * strtow - split a string to words
+ * @str: string to split
+ * Return: array of char pointers to the given words
  */
 char **strtow(char *str)
 {
-	char **words, *space;
-	int iter = 0;
+	char **strings;
+	int index = 0, words, w, letters, l;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	words = malloc(sizeof(char *) * (_strlen(str) + 1));
-	if (words == NULL)
+	words = count_words(str);
+	if (words == 0)
 		return (NULL);
-	iter = 0;
-	while (*str)
+	strings = malloc((words + 1) * sizeof(char *));
+	if (strings == NULL)
+		return (NULL);
+	for (w = 0; w < words; w++)
 	{
-		space = _strchr(str, ' ');
-		if (!(space))
+		while (str[index] == ' ')
+			index++;
+		letters = word_len(str + index);
+		strings[w] = malloc(sizeof(char) * (letters + 1));
+		if (strings[w] == NULL)
 		{
-			words[iter] = str;
-			str = '\0';
+			while (w >= 0)
+			{
+				free(strings[w]);
+				w--;
+			}
+			free(strings);
+			return (NULL);
 		}
-		else
-		{
-			words[iter] = str;
-			*space = '\0';
-			str = space + 1;
-			iter++;
-		}
+		for (l = 0; l < letters; l++)
+			strings[w][l] = str[index++];
+		strings[w][l] = 0;
 	}
-	words[iter] = NULL;
-	return (words);
+	strings[w] = NULL;
+	return (strings);
 }
-
