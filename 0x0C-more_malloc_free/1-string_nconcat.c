@@ -1,46 +1,28 @@
-#include "main.h"
-unsigned int _strlen(char *s);
+#include "main,h"
 /**
- * string_nconcat - concantente strings up to n bytes
- * concatente in a new memory space
- * @s2: string 2
+ * string_nconcat - concatenate two strings in a newly allocated space in mempry
  * @s1: first string
- * @n: number of bytes in s2 to move iver
- * Return: pointer to new concatenated string
+ * @s2: second string
+ * @n: bytes to contante limit
+ * Return: pointer to newly allocated string
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int iter, secit;
+	unsigned int len1 = 0, len2 = 0, iter = 0;
 	char *new;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	if (n > _strlen(s2))
-		n = _strlen(s2);
-	new = malloc(_strlen(s1) + n + 2);
-	if (new == NULL)
+	while (s1[len1])
+		len1++;
+	while (s2[len2] && len2 < n)
+		len2++;
+	new = malloc((len1 + len 2 + 1) * sizeof (char));
+	if (!(new))
 		return (NULL);
-	for (iter = 0; s1[iter] != '\0'; iter++)
+	for (iter = 0; iter < len1; iter++)
 		new[iter] = s1[iter];
-	for (secit = 0; secit < n; secit++, iter++)
-		new[iter] = s2[secit];
-	new[iter] = '\0';
+	for (iter = 0; iter < len2; iter++)
+		new[len1 + iter] = s2[iter];
+	new[len1 + len2 + 1] = '\0';
 	return (new);
-}
-/**
- * _strlen - get the length of a string excluding the terminating null byte
- * @s: string
- * Return: length of the string
- */
-unsigned int _strlen(char *s)
-{
-	unsigned int iter = 0;
-
-	while (s[iter])
-	{
-		iter++;
-	}
-	return (iter - 1);
 }
