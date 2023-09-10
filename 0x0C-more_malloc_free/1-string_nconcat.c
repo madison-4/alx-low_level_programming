@@ -26,13 +26,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		new[iter] = s1[iter];
 	for (secit = 0; secit <= n; secit++, iter++)
 		new[iter] = s2[secit];
-	new[iter + 1] = '\0';
+	new[iter] = '\0';
 	return (new);
 }
 /**
- * _strlen - get the length of a string excluding the treminating null byte
+ * _strlen - get the length of a string excluding the terminating null byte
  * @s: string
- * Return: length of te string
+ * Return: length of the string
  */
 unsigned int _strlen(char *s)
 {
