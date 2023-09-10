@@ -53,6 +53,33 @@ char *_strchr(char *s, char c)
 	return (NULL);
 }
 /**
+ * countwords - count the number of words in a string
+ * @str: string whose words are to be counted
+ * Return: number of words
+ */
+int countwords(char *str)
+{
+	int count = 0, isword = 0, iter;
+
+	for (iter = 0; str[iter]; iter++)
+	{
+		if (str[iter] == ' ' || str[iter] == '\t' || str[iter] == '\n')
+		{
+			if (isword)
+			{
+				count++;
+				isowrd = 0;
+			}
+			else
+				isword = 1;
+
+		}
+	}
+	if (isword)
+		count++;
+	return (count);
+}
+/**
  * strtow - split a strimg to words
  * iter is simply an itrterator that goes thrpough the string
  * @str: string to be split
@@ -60,53 +87,41 @@ char *_strchr(char *s, char c)
  */
 char **strtow(char *str)
 {
-	int len = _strlen(str), count = 0, iter = 0, old, index = 0, subchr = 0;
-	char separators[] = " ;'.", **strings, buffer[16000];
+	int count = countwords(str), iter, word = 0, wordlength = 0;
+	int old, wordcount = 0;
+	char **strings;
 
-	while (iter < len)
-	{
-		while(iter < len)
-		{
-			if (!(_strchr(separators, str[iter])))
-				break;
-			iter++;
-		}
-		old = iter;
-		while (iter < len)
-		{
-			if (_strchr(separators, str[iter]) != NULL)
-				break;
-			iter++;
-		}
-		if (iter > old)
-			count++;
-	}
-	strings = malloc(count * (sizeof(char *)));
-	if (!(strings))
+	strings = malloc(sizeof(char *) * count);
+	if (strings == NULL)
 		return (NULL);
-	iter = 0;
-	while (iter < len)
+	for (iter = 0; str[iter]; iter++)
 	{
-		while (iter < len)
+		if (str[iter] == ' ' || str[iter] == '\t' || '\n')
+			continue;
+		wordlength = 0;
+		else
 		{
-			if (_strchr(separators, str[iter]) == NULL)
-				break;
-			iter++;
-		}
-		while (iter < len)
-		{
-			if (!(_strchr(separators, str[iter])))
-				break;
-			buffer[subchr] = str[iter];
-			iter++;
-			subchr++;
-		}
-		if (subchr > 0)
-		{
-			buffer[subchr] = '\0';
-			strings[index] = malloc(sizeof(char) * (_strlen(buffer) + 1));
-			_strcpy(strings[index], buffer);
-			index++;
+			old = iter;
+			while (str[iter] != ' ' || str[iter] != '\t' || str[iter] != '\n)
+			{
+				wordlength++;
+				iter++;
+			}
+			strings[word] = malloc(sizeof(char) * (wordlength + 1));
+			if (strings[word] = NULL)
+				return (NULL);
+			else
+			{
+				while (old < iter)
+				{
+					strings[word][wordcount] = str[old];
+					old++;
+					wordcount++;
+				}
+				strings[word][wordcount] = '\0';
+				wordcount = 0;
+			}
+			word++;
 		}
 	}
 	return (strings);
