@@ -1,9 +1,11 @@
 #include "main.h"
+int _strlen(char *s);
 /**
  * string_nconcat - concantente strings up to n bytes
  * concatente in a new memory space
- * @s22: string 2
+ * @s2: string 2
  * @s1: first string
+ * @n: number of bytes in s2 to move iver
  * Return: pointer to new concatenated string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -34,7 +36,7 @@ int _strlen(char *s)
 {
 	int iter = 0;
 
-	while(s[iter])
+	while (s[iter])
 	{
 		iter++;
 	}
