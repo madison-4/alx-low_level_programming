@@ -61,7 +61,7 @@ char *_strchr(char *s, char c)
 char **strtow(char *str)
 {
 	int len = _strlen(str), count = 0, iter = 0, old, index = 0, subchr = 0;
-	char separators[] = " ;'.", **strings, buffer[32000];
+	char separators[] = " ;'.", **strings, buffer[16000];
 
 	while (iter < len)
 	{
