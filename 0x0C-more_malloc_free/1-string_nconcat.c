@@ -1,5 +1,5 @@
 #include "main.h"
-int _strlen(char *s);
+unsigned int _strlen(char *s);
 /**
  * string_nconcat - concantente strings up to n bytes
  * concatente in a new memory space
@@ -17,6 +17,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+	if (n >= _strlen(s2))
+		n = _strlen(s2);
 	new = malloc(_strlen(s1) + n + 1);
 	if (new == NULL)
 		return (NULL);
@@ -32,9 +34,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  * @s: string
  * Return: length of te string
  */
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
-	int iter = 0;
+	unsigned int iter = 0;
 
 	while (s[iter])
 	{
