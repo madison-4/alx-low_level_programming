@@ -1,0 +1,2 @@
+# About
+practicing preprocessor directivr
