@@ -1,0 +1,14 @@
+#include "main.h"
+/**
+ * sum_them_all - returns the sum of its numbers arguments
+ * @n: number of numbers to add
+ * Return: sum of the numbers
+ */
+int sum_them_all(const unsigned int n, ...)
+{
+	int sum = 0, iter;
+
+	va_start(n,
+	for (iter = 0; iter < n; iter++)
+	{
+		sum +=
