@@ -7,7 +7,7 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	int iter = 0, num;
+	unsigned int iter = 0, num;
 	va_list args;
 
 	va_start(args, n);
