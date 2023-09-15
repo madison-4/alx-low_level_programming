@@ -27,14 +27,8 @@ void print_all(const char *const format, ...)
 
 	while (format[formcount] != '\0')
 	{
-		if (format[formcount] != '%')
-		{
-			_putchar(format[formcount]);
-			formcount++;
-			continue;
-		}
 		va_start(args, format);
-		switch (format[++formcount])
+		switch (format[formcount])
 		{
 			case 'c':
 				c = va_arg(args, int);
