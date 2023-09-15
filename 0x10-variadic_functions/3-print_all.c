@@ -20,7 +20,7 @@ void sprint(char *str)
  */
 void print_all(const char *const format, ...)
 {
-	int formcount, i;
+	int formcount = 0, i;
 	va_list args;
 	char c, *str;
 	float d;
@@ -31,6 +31,7 @@ void print_all(const char *const format, ...)
 		{
 			_putchar(format[formcount]);
 			formcount++;
+			continue;
 		}
 		va_start(args, format);
 		switch (format[++formcount])
