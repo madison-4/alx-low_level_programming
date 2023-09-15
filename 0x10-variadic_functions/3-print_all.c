@@ -1,56 +1,94 @@
 #include "variadic_functions.h"
+
 /**
- * sprint - porints a stribng according to task requirements
- * @str: string to be printed
- * Return: No return
+ * printf_char - printfs a char from var args
+ *
+ * @list: va_list to print from
+ *
+ * Return: void
  */
-void sprint(char *str)
+void printf_char(va_list list)
 {
-	if (str == NULL)
+	printf("%c", (char) va_arg(list, int));
+}
+
+/**
+ * printf_int - printfs an int from var args
+ *
+ * @list: va_list to print from
+ *
+ * Return: void
+ */
+void printf_int(va_list list)
+{
+	printf("%d", va_arg(list, int));
+}
+
+/**
+ * printf_float - printfs a float from var args
+ *
+ * @list: va_list to print from
+ *
+ * Return: void
+ */
+void printf_float(va_list list)
+{
+	printf("%f", (float) va_arg(list, double));
+}
+
+/**
+ * printf_string - printfs a string from var args
+ *
+ * @list: va_list to print from
+ *
+ * Return: void
+ */
+void printf_string(va_list list)
+{
+	char *str = va_arg(list, char*);
+
+	while (str != NULL)
 	{
-		printf("(nil)");
+		printf("%s", str);
 		return;
 	}
-	printf("%s", str);
+	printf("(nil)");
 }
-/**
- * print_all - print a number of formatted output
- * @format: string containing spoecifiers
- * Return: no return
- */
-void print_all(const char *const format, ...)
-{
-	int formcount = 0, i;
-	va_list args;
-	char c, *str;
-	float d;
 
-	while (format[formcount] != '\0')
+
+/**
+ * print_all - prints various types given a format string for the arguments
+ *
+ * @format: string containing type information for args
+ *
+ * Return: void
+ */
+void print_all(const char * const format, ...)
+{
+	const char *ptr;
+	va_list list;
+	funckey key[4] = { {printf_char, 'c'}, {printf_int, 'i'},
+			   {printf_float, 'f'}, {printf_string, 's'} };
+	int keyind = 0, notfirst = 0;
+
+	ptr = format;
+	va_start(list, format);
+	while (format != NULL && *ptr)
 	{
-		va_start(args, format);
-		switch (format[formcount])
+		if (key[keyind].spec == *ptr)
 		{
-			case 'c':
-				c = va_arg(args, int);
-				printf("%c", c);
-				break;
-			case 'i':
-				i = va_arg(args, int);
-				printf("%d", i);
-				break;
-			case 'f':
-				d = va_arg(args, double);
-				printf("%f", d);
-				break;
-			case 's':
-				str = va_arg(args, char *);
-				sprint(str);
-				break;
-			default:
-				continue;
+			if (notfirst)
+				printf(", ");
+			notfirst = 1;
+			key[keyind].f(list);
+			ptr++;
+			keyind = -1;
 		}
-		formcount++;
-		va_end(args);
+		keyind++;
+		ptr += keyind / 4;
+		keyind %= 4;
 	}
 	printf("\n");
+
+	va_end(list);
 }
