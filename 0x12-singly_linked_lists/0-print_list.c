@@ -6,17 +6,17 @@
  */
 size_t print_list(const list_t *h)
 {
-	list_t *iter = h;
+	const list_t *iter = h;
 	size_t count = 0;
 
-	while (h)
+	while (iter)
 	{
-		printf("[%d] ", h->len);
-		if (!(h->str))
+		printf("[%d] ", iter->len);
+		if (!(iter->str))
 			printf("(nil)");
 		else
-			printf("%s",h->str);
-		h = h->next;
+			printf("%s", iter->str);
+		iter = iter->next;
 		count++;
 	}
 	return (count);
