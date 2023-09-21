@@ -1,23 +1,28 @@
 #include "lists.h"
 /**
- * print_list - prints a linked lists
- * @h: head address
- * Return: number of elements
+ * print_list - prints all elements of a list
+ * the head pointer is passed as the argument.
+ * It is assumed the tail points to NULL
+ * @h: head pointer passed
+ * Return: number of nodes
  */
 size_t print_list(const list_t *h)
 {
-	const list_t *iter = h;
 	size_t count = 0;
+	const list_t *temporary = h;
 
-	while (iter)
+	while (temporary != NULL)
 	{
-		printf("[%d] ", iter->len);
-		if (!(iter->str))
-			printf("(nil)\n");
-		else
-			printf("%s\n", iter->str);
-		iter = iter->next;
-		++count;
+		count += 1;
+		if (temporary->str == NULL)
+		{
+			printf("[0] (nil)\n");
+			temporary = temporary->next;
+			continue;
+		}
+		printf("[%d]", temporary->len);
+		printf(" %s\n", temporary->str);
+		temporary = temporary->next;
 	}
 	return (count);
 }
