@@ -7,7 +7,7 @@
 size_t list_len(const list_t *h)
 {
 	size_t count = 0;
-	list_t *iter = h;
+	const list_t *iter = h;
 
 	while (iter)
 	{
