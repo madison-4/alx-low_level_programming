@@ -4,6 +4,7 @@
  * @head: address of the head
  * @idx: index to add node in
  * @n: integer to ad in nde
+ * Return: address of new node or NULL on failure
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
@@ -14,7 +15,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	while ((temp) && (count < (idx - 1)))
+	while ((temp) && (count < (idx)))
 	{
 		count++;
 		temp = temp->next;
