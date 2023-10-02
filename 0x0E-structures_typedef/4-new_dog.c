@@ -34,44 +34,41 @@ char *_strcpy(char *dest, char *src)
 	dest[a] = '\0';
 	return (dest);
 }
+
 /**
- * *new_dog - function to create new dog struct
- * @name: char type
- * @age: float type
- * @owner: char type
- * Return: Always success
+ * new_dog - creates a new dog
+ * @name: the dog name
+ * @age: the dog age
+ * @owner: the owner
+ * Return: the dog
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newd;
+	dog_t *dog;
 
-	newd = malloc(sizeof(struct dog));
-	if (newd == NULL)
+	if (!name || age < 0 || !owner)
 		return (NULL);
-
-	if (name == NULL)
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
+		return (NULL);
+	dog->name = malloc(_strlen(name) + 1);
+	if (dog->name == NULL)
 	{
-		free(newd);
+		free(dog);
 		return (NULL);
 	}
-	newd->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (newd->name == NULL)
-		return (NULL);
-	_strcpy(newd->name, name);
 
-	newd->age = age;
-
-	if (owner == NULL)
+	dog->owner = malloc(_strlen(owner) + 1);
+	if (dog->owner == NULL)
 	{
-		free(newd->owner);
-		free(newd);
+		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	newd->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (newd->owner == NULL)
-		return (NULL);
-	_strcpy(newd->owner, owner);
 
-	return (newd);
+	_strcpy(dog->name, name);
+	_strcpy(dog->owner, owner);
+	dog->age = age;
+	return (dog);
 }
