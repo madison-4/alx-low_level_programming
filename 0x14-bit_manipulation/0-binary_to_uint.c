@@ -45,7 +45,7 @@ unsigned int binary_to_uint(const char *b)
 		bit = b[i] - 48;
 		if ((bit != 0) && (bit != 1))
 			return (0);
-		value = (_pow(2, raises));
+		value = bit * ((_pow(2, raises)));
 		num += value;
 		raises--;
 	}
