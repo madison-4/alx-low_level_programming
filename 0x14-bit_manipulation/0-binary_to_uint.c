@@ -38,7 +38,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int raises = (_strlen(b) - 1), i, bit, num = 0, value;
 
-	if (b == (NULL))
+	if (!(b))
 		return (0);
 	for (i = 0; b[i] != '\0'; i++)
 	{
