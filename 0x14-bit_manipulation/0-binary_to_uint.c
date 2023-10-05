@@ -36,7 +36,7 @@ unsigned int _strlen(const char *str)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int raises = ((_strlen(b)) - 1), i, bit, num = 0;
+	unsigned int raises = _strlen(b), i, bit, num = 0;
 
 	if (b == NULL)
 		return (0);
