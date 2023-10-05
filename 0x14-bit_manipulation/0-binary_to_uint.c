@@ -36,10 +36,11 @@ unsigned int _strlen(const char *str)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int raises = (_strlen(b) - 1), i, bit, num = 0, value;
+	unsigned int raises, i, bit, num = 0, value;
 
 	if (!(b))
 		return (0);
+	raises = ((_strlen(b)) - 1);
 	for (i = 0; b[i] != '\0'; i++)
 	{
 		bit = b[i] - 48;
