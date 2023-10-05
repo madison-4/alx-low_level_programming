@@ -21,7 +21,7 @@ unsigned int _pow(unsigned int base, unsigned int index)
  * @str: string to get length
  * Return: length of the string, number of chars
  */
-unsigned int _strlen(char *str)
+unsigned int _strlen(const char *str)
 {
 	unsigned int length = 0;
 
@@ -45,7 +45,7 @@ unsigned int binary_to_uint(const char *b)
 		bit = b[i] - 48;
 		if ((bit != 0) && (bit != 1))
 			return (0);
-		num += (pow(2, raises));
+		num += (_pow(2, raises));
 		raises--;
 	}
 	return (num);
