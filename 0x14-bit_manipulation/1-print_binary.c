@@ -6,17 +6,15 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bit;
 
 	if (!(n))
 	{
 		_putchar(48);
 		exit(EXIT_SUCCESS);
 	}
-	while (n)
+	while (n > 0)
 	{
-		bit = (n & 1);
-		n = n >> 1;
-		_putchar(bit + 48);
+		_putchar((n & 1) + 48);
+		n >>= 1;
 	}
 }
