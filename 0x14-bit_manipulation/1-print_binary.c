@@ -2,19 +2,18 @@
 /**
  * print_binary - prints the binary representation of a number
  * @n: number to print binary rep of number
- * Return: nio return, it's void
+ * Return: no return, it's void
  */
 void print_binary(unsigned long int n)
 {
+	int mask, i;
 
-	if (!(n))
+	if (n == 0)
 	{
-		_putchar(48);
+		putchar(48);
 		exit(EXIT_SUCCESS);
 	}
-	while (n > 0)
-	{
-		_putchar((n & 1) + 48);
-		n >>= 1;
-	}
+	mask = (8 * (sizeof(n)));
+	for (i = mask; i >= 0; i--)
+		putchar((n & (1 << i)) ? 49 : 48);
 }
