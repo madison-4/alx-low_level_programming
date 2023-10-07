@@ -15,7 +15,8 @@ void print_binary(unsigned long int n)
 	}
 	while (n)
 	{
-		bit = (n >> 1);
+		bit = (n & 1);
+		n = n >> 1;
 		_putchar(bit + 48);
 	}
 }
