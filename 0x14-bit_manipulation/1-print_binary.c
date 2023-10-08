@@ -6,14 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int mask, i;
-
-	if (n == 0)
-	{
-		putchar(48);
-		exit(EXIT_SUCCESS);
-	}
-	mask = (8 * (sizeof(n)));
-	for (i = mask; i >= 0; i--)
-		putchar((n & (1 << i)) ? 49 : 48);
+	if (n > 1)
+		print_binary(n >> 1);
+	_putchar((n & 1) ? 49 : 48);
 }
