@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-  * flip_bits - coubnts the bits needed to flip to match a number\
+  * flip_bits - coubnts the bits needed to flip to match a number
   * @n: first number
   * @m: second number
   * Return: number of bits to flip
