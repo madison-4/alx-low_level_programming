@@ -15,6 +15,5 @@ void free_dlistint(dlistint_t *head)
 		iter = iter->next;
 		free(iter->prev);
 	}
-	free(NULL);
 	free(iter);
 }
