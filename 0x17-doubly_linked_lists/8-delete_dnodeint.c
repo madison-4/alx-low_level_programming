@@ -5,7 +5,7 @@
  * @index: index to delete starting from zero
  * Return: 1 on success, -1 on failure
  */
-int delete_dnodeint_at_index(listint_t **head, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	listint_t *del, *temp = *head;
 	unsigned int count = 0;
