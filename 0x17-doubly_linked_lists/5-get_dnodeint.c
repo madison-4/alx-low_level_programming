@@ -17,5 +17,5 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		iter = iter->next;
 		i++;
 	}
-	return (iter : iter ? NULL);
+	return (iter ? iter : NULL);
 }
