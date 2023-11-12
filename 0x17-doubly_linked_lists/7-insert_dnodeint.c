@@ -22,7 +22,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		iter = new;
 		return (new);
 	}
-	while ((iter) && (count < (idx - 1))
+	while ((iter) && (count < (idx - 1)))
 	{
 		iter = iter->next;
 		count++;
