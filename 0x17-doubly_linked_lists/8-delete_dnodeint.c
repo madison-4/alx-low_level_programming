@@ -5,26 +5,30 @@
  * @index: index to delete starting from zero
  * Return: 1 on success, -1 on failure
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(listint_t **head, unsigned int index)
 {
-	dlistint_t *iter = *head;
+	listint_t *del, *temp = *head;
 	unsigned int count = 0;
 
-	while (iter && (count < index))
-	{
-		iter = iter->next;
-		count++;
-	}
-	if (!(iter))
+	if ((head == NULL) || (*head == NULL))
 		return (-1);
-	else
+	if (index == 0)
 	{
-		if (iter->next)
-			iter->next->prev = iter->prev;
-		if (iter->prev)
-			iter->prev->next = iter->next;
-		free(iter);
+		*head = temp->next;
+		free(temp);
+		(*head)->prev = NULL;
 		return (1);
 	}
+	while ((temp) && (count < (index - 1)))
+	{
+		temp = temp->next;
+		count++;
+	}
+	if (temp == NULL)
+		return (-1);
+	del = temp->next;
+	temp->next = temp->next->next;
+	temp->prev = temp->prev->prev;
+	free(del);
 	return (1);
 }
