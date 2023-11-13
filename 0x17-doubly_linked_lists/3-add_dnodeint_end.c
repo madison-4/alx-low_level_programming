@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_dnodeint_end - adds a node at the neginning
+ * add_dnodeint_end - adds a node at the end
  * @head: adddress of the head
  * @n: data of the new head node
  * Return: aaddress of new element, or NULL on failyre
