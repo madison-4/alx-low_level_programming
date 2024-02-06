@@ -1,45 +1,50 @@
 #include "hash_tables.h"
 /**
- * hash_table_set - a function that adds an element to te hash table
- * @ht: address of the given hash table
- * @key: key to use and add to the array
- * @value: value to be used with the key
- * Return: 1 on success, 0 on failure
+ * hash_table_set - add element to the hash table
+ * @ht: update the key/value
+ * @key: is the key to add. cannot be empty string
+ * @value: is the value associated with the key
+ * Return: success (1) else fail (0)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *item, *temp, *comp;
-	char *key1, *value_copy;
-	unsigned long int index;
+	hash_node_t *new;
+	char *value_copy;
+	unsigned long int index, i;
 
-	if ((ht == NULL) || (key == NULL) || (*key == '\0') || (value == NULL))
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
-	item = malloc(sizeof(hash_node_t));
+
 	value_copy = strdup(value);
-	key1 = strdup(key);
-	if ((value_copy == NULL) || (key1 == NULL) || (item == NULL))
-	{
-		free(item);
+	if (value_copy == NULL)
 		return (0);
-	}
-	item->key = key1;
-	item->value = value_copy;
-	item->next = NULL;
-	index = key_index((const unsigned char *)item->key, ht->size);
-	if (ht->array[index] == NULL)
-		ht->array[index] = item;
-	else if (ht->array[index] != NULL)
+
+	index = key_index((const unsigned char *)key, ht->size);
+	for (i = 0; ht->array[i]; i++)
 	{
-		comp = ht->array[index];
-		if (strcmp((comp->key), key) == 0)
-			comp->value = value_copy;
-		else
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			temp = ht->array[index];
-			item->next = temp;
-			ht->array[index] = temp;
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_copy;
 			return (1);
 		}
 	}
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+	{
+		free(value_copy);
+		return (0);
+	}
+	new->key = strdup(key);
+	if (new->key == NULL)
+	{
+		free(new);
+		return (0);
+	}
+	new->value = value_copy;
+	new->next = ht->array[index];
+	ht->array[index] = new;
+
 	return (1);
 }
