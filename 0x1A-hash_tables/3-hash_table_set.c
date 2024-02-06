@@ -8,7 +8,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *item, *temp, *prev, *comp;
+	hash_node_t *item, *temp, *comp;
 	char *key1, *value_copy;
 	unsigned long int index;
 
@@ -36,12 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		else
 		{
 			temp = ht->array[index];
-			while (temp)
-			{
-				prev = temp;
-				temp = temp->next;
-			}
-			prev->next = item;
+			item->next = temp;
+			array[index] = temp;
 			return (1);
 		}
 	}
