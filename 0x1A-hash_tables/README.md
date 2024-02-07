@@ -8,5 +8,6 @@ It contains the structs used as well as all the function prototypes
 ## 0-hash_table_create.c
 File that is used to create a has table
 
-## 101
-An attwmpt tp order tgem
+## 100
+An attwmpt tp order them
+It borrows from php
