@@ -11,10 +11,7 @@ void hash_table_print(const hash_table_t *ht)
 	char list_flag = 0;
 
 	if (!(ht))
-	{
-		puts("{}");
 		return;
-	}
 	putchar('{');
 	for (i = 0; i < ht->size; i++)
 	{
