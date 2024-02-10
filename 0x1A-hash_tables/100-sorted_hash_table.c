@@ -2,6 +2,7 @@
 /**
  * shash_table_create - create a hash table that is ordered
  * @size: size of the table.
+ * @ht: hash table to create
  * Return: address of new table or NULL on failure
  */
 shash_table_t *shash_table_create(unsigned long int size)
